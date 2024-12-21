@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://Benjamin101V.github.io/p/ict-%E7%BD%91%E7%BB%9C%E6%8A%80%E6%9C%AF%E7%AB%9E%E8%B5%9B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/'>
 
-<link rel="stylesheet" href="/scss/style.min.0304c6baf04e01a8fe70693791cb744d56a3578a3120a8796cefc66825aa39c7.css"><meta property='og:title' content="ICT 网络技术竞赛学习笔记">
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="ICT 网络技术竞赛学习笔记">
 <meta property='og:description' content="近期参加了 ICT 网络技术竞赛，关于赛前培训的学习笔记在这里记录一下。\n计算机网络基础及网络模拟器的初步认识（第一节） 初级名词解释 行业现状这里不再赘述，直接进入计算机网络基本名词的解释：\n1.数字信号：由二进制比特流组成，简单来说就是一连串的0和1。\n">
 <meta property='og:url' content='https://Benjamin101V.github.io/p/ict-%E7%BD%91%E7%BB%9C%E6%8A%80%E6%9C%AF%E7%AB%9E%E8%B5%9B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/'>
 <meta property='og:site_name' content='Benjamin_C'>
@@ -296,7 +296,12 @@
         </li>
       </ol>
     </li>
-    <li><a href="#heading"></a></li>
+    <li><a href="#nat-技术">NAT 技术</a>
+      <ol>
+        <li><a href="#名词解释-1">名词解释</a></li>
+      </ol>
+    </li>
+    <li><a href="#nat-模拟配置">NAT 模拟配置</a></li>
   </ol>
 </nav>
         </div>
@@ -369,7 +374,7 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 13 分钟
+                    阅读时长: 14 分钟
                 </time>
             </div>
         
@@ -1281,8 +1286,29 @@
 	
 ><br></p>
 <p><em>第二节完</em></p>
-<h2 id="heading">
-</h2>
+<h2 id="nat-技术">NAT 技术
+</h2><h3 id="名词解释-1">名词解释
+</h3><p><strong>NAT（Network Address Translation，网络地址转换）</strong>：用于在本地网络和互联网之间转换IP地址的技术。它的主要作用是将本地网络中的私有IP地址转换为可以在互联网上唯一标识的公网IP地址，从而实现内部网络与外部网络的通信。<br></p>
+<p>前文提到，IP地址分为<strong>公有地址</strong>和<strong>私有地址</strong>，二者最大的区别就在于网络的访问权限上：<br>
+<strong>私有地址只能存在于局域网当中，不能直接访问外网</strong><br>
+<strong>公有地址可以存在于广域网当中，可以直接访问外网，但是需要申请</strong><br>
+下面是各类IP中私有地址的范围：<br>
+<strong>A类</strong>：10.0.0.0  &ndash;  10.255.255.255<br>
+<strong>B类</strong>：172.16.0.0 &ndash; 172.31.255.255<br>
+<strong>C类</strong>：192.168.0.0  &ndash; 192.168.255.255</p>
+<p>我们知道，IPv4地址由64位二进制数组成，这意味着所有IPv4地址数量的总和为<code>2^64</code>，这在互联网快速发展的现今肯定是不够用的，NAT技术的存在就是为了<strong>缓解</strong>IPv4地址数量不足，但是要想彻底解决地址不够用的问题，则需要使用IPv6地址（由128位 二进制数组成）。<br></p>
+<p>局域网内的私有地址默认是不能上网的，广域网中的公有地址默认是可以上网的，我们通过在边界网关路由器上配置NAT技术，实现将不能上网的私有地址转换成可以上网的公有地址，实现网络的访问。</p>
+<h2 id="nat-模拟配置">NAT 模拟配置
+</h2><p>NAT 配置在NAT设备（通常是路由器）上进行，其过程大致可以分为四个步骤：<br></p>
+<p><strong>1.接口配置</strong>
+分为内接口和外接口</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"></code></pre></td></tr></table>
+</div>
+</div>
 </section>
 
 
@@ -1347,7 +1373,7 @@
         
             benjamin_c@qq.com <br/>
         使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
-        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.29.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
     </section>
 </footer>
 
@@ -1436,7 +1462,7 @@
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
 <script>
     (function () {
         const customFont = document.createElement('link');

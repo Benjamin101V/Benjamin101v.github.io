@@ -910,8 +910,29 @@
 	
 &gt;&lt;br&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;第二节完&lt;/em&gt;&lt;/p&gt;
-&lt;h2 id=&#34;heading&#34;&gt;
-&lt;/h2&gt;</description>
+&lt;h2 id=&#34;nat-技术&#34;&gt;NAT 技术
+&lt;/h2&gt;&lt;h3 id=&#34;名词解释-1&#34;&gt;名词解释
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;NAT（Network Address Translation，网络地址转换）&lt;/strong&gt;：用于在本地网络和互联网之间转换IP地址的技术。它的主要作用是将本地网络中的私有IP地址转换为可以在互联网上唯一标识的公网IP地址，从而实现内部网络与外部网络的通信。&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;前文提到，IP地址分为&lt;strong&gt;公有地址&lt;/strong&gt;和&lt;strong&gt;私有地址&lt;/strong&gt;，二者最大的区别就在于网络的访问权限上：&lt;br&gt;
+&lt;strong&gt;私有地址只能存在于局域网当中，不能直接访问外网&lt;/strong&gt;&lt;br&gt;
+&lt;strong&gt;公有地址可以存在于广域网当中，可以直接访问外网，但是需要申请&lt;/strong&gt;&lt;br&gt;
+下面是各类IP中私有地址的范围：&lt;br&gt;
+&lt;strong&gt;A类&lt;/strong&gt;：10.0.0.0  &amp;ndash;  10.255.255.255&lt;br&gt;
+&lt;strong&gt;B类&lt;/strong&gt;：172.16.0.0 &amp;ndash; 172.31.255.255&lt;br&gt;
+&lt;strong&gt;C类&lt;/strong&gt;：192.168.0.0  &amp;ndash; 192.168.255.255&lt;/p&gt;
+&lt;p&gt;我们知道，IPv4地址由64位二进制数组成，这意味着所有IPv4地址数量的总和为&lt;code&gt;2^64&lt;/code&gt;，这在互联网快速发展的现今肯定是不够用的，NAT技术的存在就是为了&lt;strong&gt;缓解&lt;/strong&gt;IPv4地址数量不足，但是要想彻底解决地址不够用的问题，则需要使用IPv6地址（由128位 二进制数组成）。&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;局域网内的私有地址默认是不能上网的，广域网中的公有地址默认是可以上网的，我们通过在边界网关路由器上配置NAT技术，实现将不能上网的私有地址转换成可以上网的公有地址，实现网络的访问。&lt;/p&gt;
+&lt;h2 id=&#34;nat-模拟配置&#34;&gt;NAT 模拟配置
+&lt;/h2&gt;&lt;p&gt;NAT 配置在NAT设备（通常是路由器）上进行，其过程大致可以分为四个步骤：&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1.接口配置&lt;/strong&gt;
+分为内接口和外接口&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
         </item>
         <item>
         <title>C 数组</title>
